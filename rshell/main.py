@@ -967,7 +967,7 @@ def rsync(src_dir, dst_dir, mirror, dry_run, print_func, recursed, sync_hidden):
         for name, stat in dst_files:
             d_dst[name] = stat
 
-    set_dst = set(d_dst.keys())
+    set_dst = set(d_dst.keys()) - set_ignore
     set_src = set(d_src.keys()) - set_ignore
     to_add = set_src - set_dst  # Files to copy to dest
     to_del = set_dst - set_src  # To delete from dest
